@@ -1,0 +1,45 @@
+.site-allBook {
+  .sidebar {
+    padding-left: 15px;
+    padding-right: 15px;
+    .MuiAccordion-rounded {
+      width: 300px;
+    }
+  }
+  .content {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .books {
+    border-top: 1px solid #eae8e4;
+    border-left: 1px solid #eae8e4;
+    .book__item {
+      border-right: 1px solid #eae8e4;
+      border-bottom: 1px solid #eae8e4;
+    }
+  }
+  .paginationBtn {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    a {
+      padding: 10px;
+      margin:8px;
+      border-radius: 5px;
+      border: 1px solid #2b2eff;
+      color: #2b2eff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    a:hover {
+      color: white;
+      background-color: #2b2eff;
+    }
+  }
+  .paginationActive a{
+    color: white;
+    background-color: #2b2eff;
+  }
+}

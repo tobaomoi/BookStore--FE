@@ -1,0 +1,45 @@
+.cart {
+  tr {
+    display: table-row;
+    vertical-align: inherit;
+    border: 1px solid black;
+    th,
+    td {
+      padding: 1.6rem 2rem;
+      background-color: #fff;
+    }
+  }
+  .cart__item-name {
+    width: 350px;
+    padding: 0;
+    img {
+      width: 150px;
+    }
+  }
+  .MuiAccordion-root{
+      width: 400px;
+  }
+  .cart__information {
+    border: none;
+    td {
+      padding: 0;
+      input{
+        border-width:0px;
+        border-bottom:0.1px solid black;
+        // outline:none;
+      }
+      textarea:focus, input:focus{
+        outline: none;
+    }
+      label {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        
+      }
+    }
+  }
+}
+
+.emptyCart{
+  min-height: calc(100vh - 211px - 58px);
+}

@@ -1,0 +1,13 @@
+//import base
+@import "./base/base";
+// import Component 
+@import "./Components/loginform";
+@import "./Components//footer";
+@import "./Components/navbar";
+@import "./Components/searchbar";
+@import "./Components/bookitem";
+//import Page
+@import "./Pages/HomePage/homepage";
+@import "./Pages/AllBookPage/allbookpage";
+@import "./Pages/SingleBookPage/singlebookpage";
+@import "./Pages/CartPage/cartpage";

@@ -1,0 +1,82 @@
+.HomePage {
+  section {
+    padding-bottom: 6rem;
+  }
+  button{
+    z-index: 0;
+  }
+  header {
+    padding-bottom: 2rem !important;
+    .see-all{
+      color: #161619;
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    .see-all:hover{
+      color: red;
+    }
+  }
+  .carousel {
+    img {
+      margin: 0 auto;
+      position: relative;
+      min-width: 100%;
+      height: 75vh;
+    }
+  }
+
+  .slick-list{
+    border-right: thin solid #d0d0d0;
+    border-left: thin solid #d0d0d0;
+  }
+  .slick-slide {
+    border: thin solid #d0d0d0;
+    width: 280px;
+    height: auto;
+    overflow: hidden !important;
+    transition: all .2s ease-in-out;
+  }
+  .slick-slide:hover {
+    border: thin solid rgb(20, 20, 20);
+  }
+
+  .book-list__category {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .education {
+      background-color: #FAF1FF;
+    }
+    .sport{
+      background-color: #FAF4EB;
+    }
+    .business{
+      background-color: #F4E6E5;
+    }
+    .romance{
+      background-color: #E6F2F4;
+    }
+    .crypto{
+      background-color: #FFF6F6;
+    }
+
+    .book-category__icon {
+      font-size: 3.125rem;
+    }
+    .text-category {
+      font-size: 1.125rem;
+      font-weight: 450;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .see-more{
+      color: #161619!important;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  
+  }
+}
