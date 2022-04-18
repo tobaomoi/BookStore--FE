@@ -1,18 +1,68 @@
 .book {
-  padding-top: 6rem;
-  min-height: calc(100vh - 211px - 58px);
+
+  // padding: 6rem 0rem;
+  // min-height: calc(100vh - 211px - 58px);
+  .seperateLine {
+    margin: 0 12px;
+    width: 0.1px;
+    padding: 1px;
+    background-color: rgb(242, 242, 242);
+  }
+
   .book__information {
-    .author,.description{
+    .bookName {
+      padding-top: 16px
+    }
+
+    .author,
+    .description {
       padding-top: 1rem;
     }
+
+    .quantity {
+      .quantityInput {
+        .label{
+          font-size: 15px;
+          line-height: 1.6;
+        }
+        .group-input {
+          border: 1px solid #E0E0E0E0;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 6em;
+          height: 30px;
+          .input{
+            width: 40px;
+            height: 100%;
+            text-align: center;
+            border: 1px solid rgb(236, 236, 236);
+          }
+          .group-input-btn{
+            font-size: 25px;
+            border: none;
+            background: none;
+            outline: none;
+            box-shadow: none;
+            padding: 4px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
     .thumbnail-img {
-      border-top:.0625rem solid #e5e5e5;
+      border-top: .0625rem solid #e5e5e5;
       width: 50%;
       padding-top: 1rem;
       padding-bottom: 0.5rem;
-      button{
+
+      button {
         border: none;
       }
+
       .box {
         display: inline-block;
         height: 100px;
@@ -22,23 +72,35 @@
         margin-right: 4px;
 
       }
-      .box:hover, .selected{
-        border-color: #232323;    
+
+      .box:hover,
+      .selected {
+        border-color: #232323;
       }
-     
+
     }
-    .price{
-      color:#bc3232;
+
+    .price {
+      color: #bc3232;
       font-weight: 700;
-      font-size:32px;
+      font-size: 32px;
       padding-top: 1rem;
-      padding-bottom:0.5rem;
+      padding-bottom: 0.5rem;
     }
-    .btn{
-      background-color: #bc3232;
-      color:#fff;
+    .btn-add{
+      .btn {
+        font-size: 16px;
+        font-weight: 600;
+        width: 50%;
+        padding: 10px;
+        margin-top: 16px;
+        background-color: #bc3232;
+        color: #fff;
+      }
     }
+    
   }
+
   .main-img {
     display: block;
     max-width: 500px;

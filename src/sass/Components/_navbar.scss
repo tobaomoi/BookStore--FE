@@ -5,15 +5,19 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: solid #bbbbbb 0.5px;
-
-   
-    .header__topbar-list {
+    background-color: #1B1B1B;
+    
+    .header__topbar-phoneNumber{
+      color: whitesmoke;
+    }
+    .header__topbar-right {
       ul {
         display: flex;
         list-style-type: none;
         flex-wrap: wrap;
         padding-left: 0;
         margin-bottom: 0;
+        align-items: center;
         li {
           display: list-item;
           padding: 0.5rem 1rem;
@@ -30,8 +34,25 @@
           border-radius: 60%;
         }
         .cart {
-          color: black;
+          color: whitesmoke;
         }
+        .header__topbar-item{
+          .header__topbar-itemName{
+            color: white;
+          }
+          .header__topbar-itemButton{
+            border:none;
+            background: none;
+            color: wheat;
+          }
+        }
+      }
+    }
+    .header__topbar-left{
+      color: whitesmoke;
+      text-decoration: none;
+      .phoneNumber{
+        color: whitesmoke;
       }
     }
   }
@@ -56,13 +77,14 @@
         display: flex;
         list-style-type: none;
         flex-wrap: wrap;
+        margin: 0;
       }
       .header__navbar-item {
         display: list-item;
         .header__navbar-hashLink {
           color: #19110b;
-          font-size: 20px;
-          font-weight: 500;
+          font-size: 18px;
+          font-weight: 600;
           padding: 2rem 0;
           margin-left: 1.5rem;
           margin-right: 1.5rem;

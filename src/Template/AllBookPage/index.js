@@ -23,12 +23,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AllBookPage() {
-  
+
   const classes = useStyles();
   const [bookData, setBookData] = useState({});
+  const [bookDataByPrice, setBookDataByPrice] = useState({});
   const [pageNumber, setPageNumber] = useState(0);
-  // const [category, setCategory] = useState("");
-  // const {category} = useParams();
   const history = useHistory();
   const location = useLocation();
   const path = window.location.pathname;
@@ -66,8 +65,8 @@ function AllBookPage() {
   useEffect(() => {
     const category = getBooksCateogry();
     getAllBooks();
-    history.push(`${path}?page=${pageNumber+1}&category=${category}`)
-  }, [pageNumber,new URLSearchParams(window.location.search).get("category")]);
+    history.push(`${path}?page=${pageNumber + 1}&category=${category}`)
+  }, [pageNumber, new URLSearchParams(window.location.search).get("category")]);
 
   return (
     <div className={classes.root}>
@@ -87,55 +86,30 @@ function AllBookPage() {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                   <ul className="book__categories">
+                    <ul className="book__categories">
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=phieu luu`}>Giáo dục</NavHashLink>
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=`}>Tất cả</NavHashLink>
                       </li>
                       <li className="book__categories-link">
-                      <NavHashLink smooth to="/#">Thể thao</NavHashLink>
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=giao duc`}>Giáo dục</NavHashLink>
                       </li>
                       <li className="book__categories-link">
-                      <NavHashLink smooth to="/#">Kinh doanh</NavHashLink>
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=the thao`}>Thể thao</NavHashLink>
                       </li>
                       <li className="book__categories-link">
-                      <NavHashLink smooth to="/#">Lãng mạn</NavHashLink>
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=kinh doanh`}>Kinh doanh</NavHashLink>
                       </li>
                       <li className="book__categories-link">
-                      <NavHashLink smooth to="/#">Tiền điện tử</NavHashLink>
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=tinh cam`}>Tình cảm</NavHashLink>
                       </li>
-                   </ul>
+                      <li className="book__categories-link">
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=phieu luu`}>Phiêu lưu</NavHashLink>
+                      </li>
+                    </ul>
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel2a-content"
-                  id="panel2a-header"
-                >
-                  <Typography className={classes.heading}>
-                    Tác giả
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion disabled>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel3a-content"
-                  id="panel3a-header"
-                >
-                  <Typography className={classes.heading}>
-                    Disabled Accordion
-                  </Typography>
-                </AccordionSummary>
-              </Accordion>
+
             </div>
             <div className=" col content ">
               <div className="content__controlBar"></div>
@@ -156,7 +130,6 @@ function AllBookPage() {
                   disabledClassName={"paginationDisabled"}
                   activeClassName={"paginationActive"}
                   breakLabel={"..."}
-                  
                 />
               </div>
             </div>

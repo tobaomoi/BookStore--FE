@@ -57,6 +57,7 @@ function Payment(props) {
     setOpen(true);
     if (!accessToken) {
       setIsLogin(false)
+<<<<<<< HEAD
     } else{
       setIsLogin(true)
     } 
@@ -107,6 +108,58 @@ function Payment(props) {
           </div>
         </Fade>
       </Modal>
+=======
+    } else {
+      setIsLogin(true)
+    }
+  };
+  const renderModalCheckout = () => {
+    if (isLogin === true) {
+      return (
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="transition-modal-title">Đăng nhập rồi nè</h2>
+              <p id="transition-modal-description">react-transition-group animates me.</p>
+            </div>
+          </Fade>
+        </Modal>
+      )
+    }
+    else {
+      return (
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 className="text-center" id="transition-modal-title">Thông báo</h2>
+
+              <p id="transition-modal-description" className="mx-auto">Vui lòng đăng nhập để thực hiện chức năng này !!!</p>
+            </div>
+          </Fade>
+        </Modal>
+>>>>>>> ab77db8 (update)
       )
     }
   }
@@ -115,6 +168,7 @@ function Payment(props) {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
+<<<<<<< HEAD
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
@@ -159,13 +213,23 @@ function Payment(props) {
           id="panel2a-header"
         >
           <Typography className={classes.heading}>Thông tin cá nhân</Typography>
+=======
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className={classes.heading}> <b>Thông tin cá nhân</b> </Typography>
+>>>>>>> ab77db8 (update)
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
             <table>
               <tr className="cart__information">
                 <td>
+<<<<<<< HEAD
                   <label htmlFor="name">Họ tên :</label>
+=======
+                  <label htmlFor="name"> <b> Họ tên :</b></label>
+>>>>>>> ab77db8 (update)
                 </td>
                 <td>
                   <input
@@ -179,7 +243,11 @@ function Payment(props) {
               </tr>
               <tr className="cart__information">
                 <td>
+<<<<<<< HEAD
                   <label htmlFor="phoneNumber">Số điện thoại :</label>
+=======
+                  <label htmlFor="phoneNumber"> <b>Số điện thoại :</b> </label>
+>>>>>>> ab77db8 (update)
                 </td>
                 <td>
                   <input
@@ -193,7 +261,11 @@ function Payment(props) {
               </tr>
               <tr className="cart__information">
                 <td>
+<<<<<<< HEAD
                   <label htmlFor="address">Địa chỉ :</label>
+=======
+                  <label htmlFor="address"> <b>Địa chỉ :</b> </label>
+>>>>>>> ab77db8 (update)
                 </td>
                 <td>
                   <input
@@ -207,7 +279,11 @@ function Payment(props) {
               </tr>
               <tr className="cart__information">
                 <td>
+<<<<<<< HEAD
                   <label htmlFor="city">Thành phố :</label>
+=======
+                  <label htmlFor="city"> <b>Thành phố :</b> </label>
+>>>>>>> ab77db8 (update)
                 </td>
                 <td>
                   <input
@@ -222,6 +298,7 @@ function Payment(props) {
           </Typography>
         </AccordionDetails>
       </Accordion>
+<<<<<<< HEAD
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -237,6 +314,23 @@ function Payment(props) {
           Thanh toán
         </button>
         {renderModalCheckout()}
+=======
+      <div className="block-total-cart">
+        <div className="totalPrice">
+          <div className="totalPrice__left">Thành tiền</div>
+          <div className="totalPrice__right">
+            <span>{totalPrice} đ</span> </div>
+        </div>
+        <hr />
+        <div className="payment">
+          <div>
+            <button className="btn-payment" type="button" onClick={handleCheckout}>
+              THANH TOÁN
+            </button>
+          </div>
+          {renderModalCheckout()}
+        </div>
+>>>>>>> ab77db8 (update)
       </div>
     </div>
   );

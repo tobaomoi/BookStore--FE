@@ -32,10 +32,10 @@ function Navbar() {
     if (!accessToken) {
       return (
         <nav className="header__topbar container-fluid px-3 px-md-5">
-          <div className="header__topbar-phoneNumber">
-            <a href="tel: +123458">123458</a>
+          <div className="header__topbar-left">
+            <a className="phoneNumber" href="tel: +123458">0917788048</a> | tiemsachcuatui@gmail.com
           </div>
-          <div className="header__topbar-list">
+          <div className="header__topbar-right">
             <ul>
               <li className="header__topbar-item">
                 <a href="http://localhost:3000/cart">
@@ -58,12 +58,12 @@ function Navbar() {
     } else {
       return (
         <nav className="header__topbar container-fluid px-3 px-md-5">
-          <div className="header__topbar-phoneNumber">
-            <a href="tel: +123458">123458</a>
+          <div className="header__topbar-left">
+            <a className="phoneNumber" href="tel: +123458">0917788048</a> | tiemsachcuatui@gmail.com
           </div>
-          <div className="header__topbar-list">
+          <div className="header__topbar-right">
             <ul>
-              <li className="header__topbar-item">
+            <li className="header__topbar-item">
                 <a href="http://localhost:3000/cart">
                   <ShoppingCartRoundedIcon
                     className="cart"
@@ -75,10 +75,13 @@ function Navbar() {
               </li>
 
               <li className="header__topbar-item">
+                <div className="header__topbar-itemName">
                 {userInformation.given_name}
+                </div>
+                
               </li>
               <li className="header__topbar-item">
-                <button onClick={() => handleUserLogOut()}>Đăng xuất</button>{" "}
+                <button className="header__topbar-itemButton" onClick={() => handleUserLogOut()}>ĐĂNG XUẤT</button>{" "}
               </li>
             </ul>
           </div>
@@ -110,7 +113,7 @@ function Navbar() {
           <NavHashLink smooth to="/#">
             <img
               className="logo"
-              src="https://iweb.tatthanh.com.vn/pic/3/blog/images/logo-sach(63).jpg"
+              src="https://i.pinimg.com/originals/70/bd/63/70bd630505578fffc4c873001f89a9e1.jpg"
               alt="HieuSachCuaNhat"
             />
           </NavHashLink>
@@ -129,16 +132,11 @@ function Navbar() {
             </li>
             <li className="header__navbar-item">
               <NavHashLink
-                className="header__navbar-hashLink  dropdown-toggle"
+                className="header__navbar-hashLink "
                 smooth
-                to="/#"
+                to="/allBook?page=1&category="
               >
                 Sách
-              </NavHashLink>
-            </li>
-            <li className="header__navbar-item">
-              <NavHashLink className="header__navbar-hashLink" smooth to="/#">
-                Blog
               </NavHashLink>
             </li>
             <li className="header__navbar-item">

@@ -2,8 +2,47 @@
   .sidebar {
     padding-left: 15px;
     padding-right: 15px;
+    .MuiPaper-root{
+      .MuiButtonBase-root{
+        background: #F7941E;
+        .MuiAccordionSummary-content{
+          justify-content: center;
+        }
+      }
+    }
     .MuiAccordion-rounded {
       width: 300px;
+      .MuiCollapse-root{
+        .MuiAccordionDetails-root{
+          padding: 0;
+          p{
+            padding: 0;
+            width: 100%;
+            
+            .book__categories{
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              .book__categories-link{
+                height: 45px;
+                display: flex;
+                a{
+                  font-family: none;
+                  width: 100%;
+                  color: #444444;
+                  align-self: center;
+                  padding-left: 2em;
+                }
+              }
+              .book__categories-link:hover{
+                background-color: #FCDAB0;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        
+      }
     }
   }
   .content {
@@ -11,9 +50,10 @@
     padding-left: 15px;
   }
   .books {
-    border-top: 1px solid #eae8e4;
-    border-left: 1px solid #eae8e4;
+   
     .book__item {
+      border-top: 1px solid #eae8e4;
+      border-left: 1px solid #eae8e4;
       border-right: 1px solid #eae8e4;
       border-bottom: 1px solid #eae8e4;
     }

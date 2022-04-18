@@ -21,7 +21,11 @@ function BookItem(props) {
     const action = addCart(bookInformation);
     console.log({ action });
     dispatch(action);
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> ab77db8 (update)
   };
   return (
     // eslint-disable-next-line no-template-curly-in-string
@@ -33,10 +37,17 @@ function BookItem(props) {
           </div>
         </NavHashLink>
         <div className="short__information">
+<<<<<<< HEAD
           <a href="#">{book.category}</a>
           <div className="book__name">  {book.bookName}</div>
           <div className="book__author"> {book.author}</div>
           <div className="book__price">{book.price}</div>
+=======
+          <a href={`/book/${book.id}/#`}>{book.category}</a>
+          <div className="book__name">  {book.bookName}</div>
+          <div className="book__author"> {book.author}</div>
+          <div className="book__price">{book.price} đ</div>
+>>>>>>> ab77db8 (update)
         </div>
         <div className="item__hover d-flex justify-content-between">
           <form action="" onSubmit={(event) => addToCart(event)}>

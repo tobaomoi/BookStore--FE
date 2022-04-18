@@ -16,10 +16,16 @@
     color: #f75454;
     text-decoration: none;
     background-color: transparent;
+    font-weight: 600;
   }
-  .book__name,
-  .book__price {
+  .book__name {
+    font-weight: 400;
     color: #161619;
+  }
+  .book__price{
+    color:#C92127;
+    font-size: 16px;
+    font-weight: 600;
   }
   .book__author {
     font-size: 0.875rem;

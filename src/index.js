@@ -10,7 +10,11 @@ import { Provider } from "react-redux";
 import store, { persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 ReactDOM.render(
+<<<<<<< HEAD
   <React.StrictMode>
+=======
+  
+>>>>>>> ab77db8 (update)
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
@@ -18,7 +22,11 @@ ReactDOM.render(
         </PersistGate>
       </Provider>
     </BrowserRouter>
+<<<<<<< HEAD
   </React.StrictMode>,
+=======
+  ,
+>>>>>>> ab77db8 (update)
   document.getElementById("root")
 );
 

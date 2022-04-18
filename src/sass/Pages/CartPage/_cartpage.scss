@@ -10,11 +10,26 @@
     }
   }
   .cart__item-name {
+<<<<<<< HEAD
     width: 350px;
     padding: 0;
     img {
       width: 150px;
     }
+=======
+    width: 250px;
+    padding: 10px 0px;
+    img {
+      width: 150px;
+    }
+    .cart__item-bookName{
+      font-weight: 600;
+      color: black;
+    }
+    .cart__item-authorName{
+      color:black;
+    }
+>>>>>>> ab77db8 (update)
   }
   .MuiAccordion-root{
       width: 400px;
@@ -39,7 +54,115 @@
     }
   }
 }
+<<<<<<< HEAD
 
 .emptyCart{
   min-height: calc(100vh - 211px - 58px);
+=======
+.cart__item-quantity{
+  .a{
+    border: 1px solid #E0E0E0E0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 5em;
+    height: 30px;
+  }
+  .btn{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-weight: 600;
+  }
+}
+.cart__item-remove{
+  .deleteBtn{
+    border: none;
+    background-color: transparent;
+  }
+  .deleteBtn:hover{
+    color: #C92127;
+  }
+}
+.title{
+  padding-left: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  .title__num{
+    font-size: 16px;
+  }
+}
+.col-main{
+  background-color: #f8f6f0;
+  height: 100%;
+  padding: 50px;
+  .col-payment{
+    .block-total-cart{
+      background: white;
+      border-radius: 8px;
+      width: 400px;
+      margin-top: 20px;
+      .totalPrice{
+        display: flex;
+        padding: 10px 16px;
+        font-weight: 650;
+        font-size: 1em;
+        .totalPrice__left{
+          flex-basis: 65%;
+        }
+        .totalPrice__right{
+          flex-basis: 35%;
+          display: flex;
+          color: #C92127;
+          font-size: 1.4em;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+    }
+    hr{
+      width: 95%;
+      margin: auto;
+    }
+    .payment{
+      padding: 16px 16px;
+      .btn-payment{
+        width: 100%;
+        margin: 0px 0px 0px 0px;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        color: white;
+        background: #C92127;
+      }
+    }
+    
+  }
+}
+.emptyCart{
+  min-height: calc(100vh - 211px - 58px);
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .emptyCart__body{
+    text-align: center;
+  }
+  .btn-shopping{
+    cursor: pointer;
+    height: 40px;
+    width: 220px;
+    border-radius: 8px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    background-color: #C92127;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+>>>>>>> ab77db8 (update)
 }
