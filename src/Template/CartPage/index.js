@@ -89,7 +89,6 @@ function CartPage(props) {
                 +
               </button>
               </div>
->>>>>>> ab77db8 (update)
             </td>
             <td className="cart__item-totalPrice">{price * quantity}</td>
             <td className="cart__item-remove">
@@ -164,7 +163,6 @@ function CartPage(props) {
       </div>
     </div>
 
->>>>>>> ab77db8 (update)
   );
 }
 

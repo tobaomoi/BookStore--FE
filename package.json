@@ -22,10 +22,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
-<<<<<<< HEAD
-=======
     "react-toastify": "^8.2.0",
->>>>>>> ab77db8 (update)
     "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",

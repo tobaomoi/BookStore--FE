@@ -229,7 +229,6 @@ function Payment(props) {
                   <label htmlFor="name">Họ tên :</label>
 =======
                   <label htmlFor="name"> <b> Họ tên :</b></label>
->>>>>>> ab77db8 (update)
                 </td>
                 <td>
                   <input
@@ -243,9 +242,6 @@ function Payment(props) {
               </tr>
               <tr className="cart__information">
                 <td>
-<<<<<<< HEAD
-                  <label htmlFor="phoneNumber">Số điện thoại :</label>
-=======
                   <label htmlFor="phoneNumber"> <b>Số điện thoại :</b> </label>
 >>>>>>> ab77db8 (update)
                 </td>
