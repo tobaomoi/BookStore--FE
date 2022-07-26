@@ -1,79 +1,207 @@
-.MuiButton-label{
+.MuiButton-label {
   color: wheat;
 }
+
 .MuiDialog-paperWidthSm {
   width: 600px;
   height: 550px;
   position: relative;
+  background: url("https://www.womenbuildingaustralia.com.au/sites/default/files/images/Poly_BG_Grad%20%281%29_0_1.png");
+
+  .MuiDialogTitle-root {
+    .MuiButtonBase-root {
+      top: 5px;
+      right: -128px;
+    }
+  }
+
   .MuiTypography-root {
     .button-box {
       position: relative;
       margin: 20px auto;
-      box-shadow: 0 0 20px 9px #ff61241f;
+      box-shadow: 0 0 20px 9px #d8d6d61f;
       border-radius: 30px;
+
       .toggle-btn {
         padding: 10px 30px;
+        font-size: 15px;
         cursor: pointer;
         background: transparent;
+        color: white;
         border: 0;
         outline: none;
         position: relative;
       }
-      #btn1 {
+
+      .blockColorBtn {
         top: 0;
-        left: 0;
         position: absolute;
-        width: 150px;
+        width: 128px;
         height: 100%;
-        background: linear-gradient(to right, #ff105f, #ffad06);
+        background: linear-gradient(to left, #9b9a9a, #525252);
         border-radius: 30px;
-        transition: 0.5s;
+        transition: .5s;
       }
     }
-    
+
   }
 
-  
+
   .MuiDialogContent-dividers {
     border: none;
   }
+
   .MuiDialogContent-root {
     .form-container {
-      .sign_In_Form, .sign_Up_Form {
+      .sign_In_Form_Hidden,.sign_Up_Form_Hidden{
+        display: none;
+      }
+      .sign_In_Form,
+      .sign_Up_Form {
         position: absolute;
+
         input[type="text"],
         input[type="password"] {
           width: 100%;
           padding: 0;
           margin: 8px 0;
           display: inline-block;
-          border-top: 0;
-          border-right: 0;
-          border-left: 0;
-          border-bottom: 1px solid #999;
+          border: 0;
           box-sizing: border-box;
         }
-        input:focus{
+
+        input:focus {
           outline: none;
         }
+
+        .input-container {
+          .input {
+            padding: 10px;
+            border-radius: 8px;
+          }
+        }
       }
-      
-      .btn {
-        width: 100%;
+
+      label {
         color: white;
-        background-color: #0e4392;
+      }
+
+      .btn{
+        width: 100%;
+        font-size: 14px;
+        color: white;
+        background: linear-gradient(to left, #efb753, #c7ad75);
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         cursor: pointer;
       }
+
+      .forget__password {
+        margin-top: 20px;
+
+        .forget__password-main {
+          color: #efb753;
+          font-family: Arial, Helvetica, sans-serif;
+          margin-top: 20px;
+        }
+      }
+
       #signIn {
         left: 150px;
         width: 300px;
       }
+      .registerNow_Hidden{
+        display: none;
+      }
+      .registerNow {
+        top: 275px;
+        left: 150px;
+        color: white;
+
+        .btn-registerNow {
+          font-family: Arial, Helvetica, sans-serif;
+          color: #efb753;
+          margin-left: 5px;
+          background: none;
+          border: none;
+        }
+      }
+
       #signUp {
-        left: 650px;
+        left: 150px;
+        top: 0;
         width: 300px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 413px) {
+  .MuiDialog-paperWidthSm {
+    .MuiDialogContent-root {
+      .form-container {
+        #signIn {
+          left: 15px;
+          width: 250px;
+        }
+
+        #signUp {
+          left: 15px;
+          top: 0;
+          width: 250px;
+        }
+        .registerNow {
+          top: 275px;
+          color: white;
+          left: 10px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 414px) and (max-width: 500px){
+  .MuiDialog-paperWidthSm {
+    .MuiDialogContent-root {
+      .form-container {
+        #signIn {
+          left: 50px;
+          width: 250px;
+        }
+
+        #signUp {
+          left: 50px;
+          top: 0;
+          width: 250px;
+        }
+        .registerNow {
+          top: 275px;
+          color: white;
+          left: 45px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 550px){
+  .MuiDialog-paperWidthSm {
+    .MuiDialogContent-root {
+      .form-container {
+        #signIn {
+          left: 100px;
+          width: 250px;
+        }
+
+        #signUp {
+          left: 100px;
+          top: 0;
+          width: 250px;
+        }
+        .registerNow {
+          top: 275px;
+          color: white;
+          left: 95px;
+        }
       }
     }
   }

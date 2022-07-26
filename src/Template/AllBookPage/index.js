@@ -8,9 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import callApi from "../../api";
 import BookItem from "../../Components/BookItem";
-import Pagination from "../../Components/Pagination";
 import ReactPaginate from "react-paginate";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +25,6 @@ function AllBookPage() {
 
   const classes = useStyles();
   const [bookData, setBookData] = useState({});
-  const [bookDataByPrice, setBookDataByPrice] = useState({});
   const [pageNumber, setPageNumber] = useState(0);
   const history = useHistory();
   const location = useLocation();
@@ -70,7 +68,7 @@ function AllBookPage() {
 
   return (
     <div className={classes.root}>
-      <div className="site-allBook mt-5">
+      <div className="site-allBook ">
         <div className="container">
           <div className="row">
             <div className=" col-3 sidebar">
@@ -120,8 +118,8 @@ function AllBookPage() {
               </div>
               <div className="content__pagination">
                 <ReactPaginate
-                  previousLabel={"<"}
-                  nextLabel={">"}
+                  previousLabel={"‹"}
+                  nextLabel={"›"}
                   pageCount={bookData.last_page}
                   onPageChange={changePage}
                   containerClassName={"paginationBtn"}

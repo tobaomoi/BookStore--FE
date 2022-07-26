@@ -22,7 +22,6 @@ function BooksHomePage() {
   const getAllHighLightBook = () => {
     callApi.get("/books/getHighLightBooks").then((result) => {
       getAllLatestBooks(result.data);
-      console.log("ket qua",result);
     });
   };
 
@@ -56,11 +55,7 @@ function BooksHomePage() {
                 </div>
                 <div className="book-category__body">
                   <h3 className="text-category">Giáo dục</h3>
-<<<<<<< HEAD
-                  <a className="see-more" href="#">Xem thêm</a>
-=======
                   <a className="see-more" href="http://localhost:3000/allBook?page=1&category=Giao%20duc">Xem thêm</a>
->>>>>>> ab77db8 (update)
                 </div>
               </div>
             </li>
@@ -71,11 +66,7 @@ function BooksHomePage() {
                 </div>
                 <div className="book-category__body">
                   <h3 className="text-category">Thể thao</h3>
-<<<<<<< HEAD
-                  <a className="see-more" href="#">Xem thêm</a>
-=======
                   <a className="see-more" href="http://localhost:3000/allBook?page=1&category=The%20thao">Xem thêm</a>
->>>>>>> ab77db8 (update)
                 </div>
               </div>
             </li>
@@ -86,11 +77,7 @@ function BooksHomePage() {
                 </div>
                 <div className="book-category__body">
                   <h3 className="text-category">Kinh doanh</h3>
-<<<<<<< HEAD
-                  <a className="see-more" href="#">Xem thêm</a>
-=======
                   <a className="see-more" href="http://localhost:3000/allBook?page=1&category=Kinh%20doanh">Xem thêm</a>
->>>>>>> ab77db8 (update)
                 </div>
               </div>
             </li>
@@ -101,11 +88,7 @@ function BooksHomePage() {
                 </div>
                 <div className="book-category__body">
                   <h3 className="text-category">Lãng mạn</h3>
-<<<<<<< HEAD
-                  <a className="see-more" href="#">Xem thêm</a>
-=======
                   <a className="see-more" href="http://localhost:3000/allBook?page=1&category=Lang%20man">Xem thêm</a>
->>>>>>> ab77db8 (update)
                 </div>
               </div>
             </li>
@@ -116,11 +99,7 @@ function BooksHomePage() {
                 </div>
                 <div className="book-category__body">
                   <h3 className="text-category">Tiền điện tử</h3>
-<<<<<<< HEAD
-                  <a className="see-more" href="#">Xem thêm</a>
-=======
                   <a className="see-more" href="http://localhost:3000/allBook?page=1&category=Tien%20dien%20tu">Xem thêm</a>
->>>>>>> ab77db8 (update)
                 </div>  
               </div>
             </li>

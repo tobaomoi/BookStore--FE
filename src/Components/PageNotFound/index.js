@@ -8,7 +8,7 @@ function PageNotFound(props) {
         <h1>404</h1>
         <p>WE ARE SORRY, THE PAGE YOU REQUESTED WAS NOT FOUND.</p>
         <button
-          onClick={() => { props.history.push("/") }}
+          onClick={() => { props.history.push("/homepage") }}
         >
           BACK TO HOME PAGE
         </button>

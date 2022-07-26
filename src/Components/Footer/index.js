@@ -2,19 +2,15 @@ import React from "react";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 function Footer(props) {
   return (
     <div className="footer py-5 ">
       <div className="container">
-        <div className="row">
+        <div className="row footer__container">
           <div className="col-sm-12 col-md-6">
             <h1>Tiệm Sách Của Tui</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-              qui facere eius! Vel obcaecati, porro quas nam explicabo magni.
-              Aperiam magnam ratione beatae nam asperiores accusantium a
-              sapiente dolorem tempora!
-            </p>
+            <MenuBookIcon className="footer-bookIcon"/>
           </div>
           <div className="col-md-4">
               <h6>Hỗ trợ khách hàng</h6>

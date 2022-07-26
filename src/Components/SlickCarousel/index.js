@@ -10,7 +10,7 @@ function SlickCarousel(props) {
     speed: 400,
     slidesToShow: 5,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
   };
@@ -28,7 +28,7 @@ function SlickCarousel(props) {
           id={
             props.bookType === "Sách nổi bật" ? "feature_books" : "new__release"
           }
-          className="book__type"
+          className={props.bookType}
         >
           {props.bookType}
         </h2>

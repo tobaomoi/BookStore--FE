@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { NavHashLink } from "react-router-hash-link";
+import { ToastContainer, toast } from "react-toastify";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -34,14 +32,18 @@ function Payment(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [isLogin, setIsLogin] = useState();
-  const { totalPrice } = props;
+  let { totalPrice } = props;
+  const max = 9999999;
+  const min = 1000000;
+  const oderCode = Math.trunc(Math.random() * (max - min) + min);
   const [userInformation, setUserInformation] = useState({
     name: "",
     phoneNumber: "",
     address: "",
     city: "",
+    orderCode: oderCode
   });
-
+  totalPrice = totalPrice.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});
   const handleClose = () => {
     setOpen(false);
   };
@@ -57,87 +59,26 @@ function Payment(props) {
     setOpen(true);
     if (!accessToken) {
       setIsLogin(false)
-<<<<<<< HEAD
-    } else{
-      setIsLogin(true)
-    } 
-  };
-  const renderModalCheckout = () => {
-    if(isLogin === true){
-      return (
-        <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">Đăng nhập rồi nè</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
-          </div>
-        </Fade>
-      </Modal>
-      )
-    }
-    else{
-      return (
-        <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-           <h2 className="text-center" id="transition-modal-title">Thông báo</h2>
-            
-            <p id="transition-modal-description" className="mx-auto">Vui lòng đăng nhập để thực hiện chức năng này !!!</p>
-          </div>
-        </Fade>
-      </Modal>
-=======
     } else {
       setIsLogin(true)
+      if (document.getElementById('name').value === "" || document.getElementById('phoneNumber').value === "" || document.getElementById('address').value === "" || document.getElementById('city').value === "") {
+        setOpen(false);
+        toast.error('Vui lòng nhập thông tin cá nhân!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return false;
+      }
     }
   };
+
   const renderModalCheckout = () => {
-    if (isLogin === true) {
-      return (
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <h2 id="transition-modal-title">Đăng nhập rồi nè</h2>
-              <p id="transition-modal-description">react-transition-group animates me.</p>
-            </div>
-          </Fade>
-        </Modal>
-      )
-    }
-    else {
+    if (isLogin === false) {
       return (
         <Modal
           aria-labelledby="transition-modal-title"
@@ -159,163 +100,115 @@ function Payment(props) {
             </div>
           </Fade>
         </Modal>
->>>>>>> ab77db8 (update)
       )
     }
+    if (isLogin === true) {
+      if (document.getElementById('name').value !== "" && document.getElementById('phoneNumber').value !== "" && document.getElementById('address').value !== "" && document.getElementById('city').value !== "")
+        return (
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paper} id="modal-checkout">
+                <div className="stickSuccessful">
+                  <CheckCircleIcon style={{ fontSize: "50px", color: "green" }}></CheckCircleIcon>
+                </div>
+                <h1 id="transition-modal-title">Đặt hàng thành công</h1>
+                <p>Bạn đã đặt hàng thành công đơn hàng mã <span className="checkout-code">{userInformation.orderCode}</span></p>
+                <div>
+                  <h5 className="header-detailCheckoutInformation">Chi tiết đơn hàng: </h5>
+                  <div className="checkout__information">
+                    <p className="checkout__information-main">Người nhận: <span className="checkout__information-detail">{userInformation.name}</span>  </p>
+                    <p className="checkout__information-main">SĐT: <span className="checkout__information-detail">{userInformation.phoneNumber}</span> </p>
+                    <p className="checkout__information-main">Địa chỉ: <span className="checkout__information-detail">{userInformation.address}</span></p>
+                    <p className="checkout__information-main">Tổng giá: <span className="checkout__information-detail">{totalPrice}</span></p>
+                  </div>
+                </div>
+              </div>
+            </Fade>
+          </Modal>
+        )
+    }
+
   }
   return (
     <div>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-<<<<<<< HEAD
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>Chủ đề</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <ul className="book__categories">
-              <li className="book__categories-link">
-                <NavHashLink smooth to="/#">
-                  Giáo dục
-                </NavHashLink>
-              </li>
-              <li className="book__categories-link">
-                <NavHashLink smooth to="/#">
-                  Thể thao
-                </NavHashLink>
-              </li>
-              <li className="book__categories-link">
-                <NavHashLink smooth to="/#">
-                  Kinh doanh
-                </NavHashLink>
-              </li>
-              <li className="book__categories-link">
-                <NavHashLink smooth to="/#">
-                  Lãng mạn
-                </NavHashLink>
-              </li>
-              <li className="book__categories-link">
-                <NavHashLink smooth to="/#">
-                  Tiền điện tử
-                </NavHashLink>
-              </li>
-            </ul>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Thông tin cá nhân</Typography>
-=======
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}> <b>Thông tin cá nhân</b> </Typography>
->>>>>>> ab77db8 (update)
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <table>
-              <tr className="cart__information">
-                <td>
-<<<<<<< HEAD
-                  <label htmlFor="name">Họ tên :</label>
-=======
-                  <label htmlFor="name"> <b> Họ tên :</b></label>
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    onChange={handleGetInformation}
-                    id="name"
-                    name="name"
-                    placeholder="John More Doe"
-                  />
-                </td>
-              </tr>
-              <tr className="cart__information">
-                <td>
-                  <label htmlFor="phoneNumber"> <b>Số điện thoại :</b> </label>
->>>>>>> ab77db8 (update)
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    onChange={handleGetInformation}
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    placeholder="John More Doe"
-                  />
-                </td>
-              </tr>
-              <tr className="cart__information">
-                <td>
-<<<<<<< HEAD
-                  <label htmlFor="address">Địa chỉ :</label>
-=======
-                  <label htmlFor="address"> <b>Địa chỉ :</b> </label>
->>>>>>> ab77db8 (update)
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    onChange={handleGetInformation}
-                    id="address"
-                    name="address"
-                    placeholder="566 CMT8"
-                  />
-                </td>
-              </tr>
-              <tr className="cart__information">
-                <td>
-<<<<<<< HEAD
-                  <label htmlFor="city">Thành phố :</label>
-=======
-                  <label htmlFor="city"> <b>Thành phố :</b> </label>
->>>>>>> ab77db8 (update)
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    placeholder="Hồ Chí Minh"
-                  />
-                </td>
-              </tr>
-            </table>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-<<<<<<< HEAD
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography className={classes.heading}>Mã giảm giá</Typography>
-        </AccordionSummary>
-      </Accordion>
-      <div className="totalPrice">Tổng cộng: {totalPrice}</div>
-      <div className="payment">
-        <button type="button" onClick={handleCheckout}>
-          Thanh toán
-        </button>
-        {renderModalCheckout()}
-=======
+      <div className="personal__information">
+        <div className="personal__information-header"><b>Thông tin cá nhân</b></div>
+        <table>
+          <tr className="personal__information-body">
+            <td>
+              <label htmlFor="name"> <b> Họ tên :</b></label>
+            </td>
+            <td>
+              <input
+                type="text"
+                onChange={handleGetInformation}
+                id="name"
+                name="name"
+                placeholder="John More Doe"
+              />
+            </td>
+          </tr>
+          <tr className="personal__information-body">
+            <td>
+              <label htmlFor="phoneNumber"> <b>Số điện thoại :</b> </label>
+            </td>
+            <td>
+              <input
+                type="text"
+                onChange={handleGetInformation}
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="John More Doe"
+              />
+            </td>
+          </tr>
+          <tr className="personal__information-body">
+            <td>
+              <label htmlFor="address"> <b>Địa chỉ :</b> </label>
+            </td>
+            <td>
+              <input
+                type="text"
+                onChange={handleGetInformation}
+                id="address"
+                name="address"
+                placeholder="566 CMT8"
+              />
+            </td>
+          </tr>
+          <tr className="personal__information-body">
+            <td>
+              <label htmlFor="city"> <b>Thành phố :</b> </label>
+            </td>
+            <td>
+              <input
+                onChange={handleGetInformation}
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Hồ Chí Minh"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
       <div className="block-total-cart">
         <div className="totalPrice">
           <div className="totalPrice__left">Thành tiền</div>
           <div className="totalPrice__right">
-            <span>{totalPrice} đ</span> </div>
+            <span>{totalPrice}</span> </div>
         </div>
         <hr />
         <div className="payment">
@@ -323,10 +216,22 @@ function Payment(props) {
             <button className="btn-payment" type="button" onClick={handleCheckout}>
               THANH TOÁN
             </button>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
           </div>
           {renderModalCheckout()}
         </div>
->>>>>>> ab77db8 (update)
       </div>
     </div>
   );

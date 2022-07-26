@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 
 function SearchBar({ placeholder, data }) {
   console.log("data", data);
@@ -47,7 +47,7 @@ function SearchBar({ placeholder, data }) {
                 className="dataItem"
                 href={`http://localhost:3000/book/${book.id}`}
               >
-                <p>
+                <p className="bookName">
                   <span>
                     <img
                       className="smallThumbnail"

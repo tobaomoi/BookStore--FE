@@ -3,59 +3,71 @@
     display: table-row;
     vertical-align: inherit;
     border: 1px solid black;
+
     th,
     td {
       padding: 1.6rem 2rem;
       background-color: #fff;
     }
   }
+
   .cart__item-name {
-<<<<<<< HEAD
-    width: 350px;
-    padding: 0;
-    img {
-      width: 150px;
-    }
-=======
     width: 250px;
     padding: 10px 0px;
+
     img {
       width: 150px;
     }
-    .cart__item-bookName{
+
+    .cart__item-bookName {
       font-weight: 600;
       color: black;
     }
-    .cart__item-authorName{
-      color:black;
+
+    .cart__item-authorName {
+      color: black;
     }
->>>>>>> ab77db8 (update)
   }
-  .MuiAccordion-root{
-      width: 400px;
-  }
-  .cart__information {
-    border: none;
-    td {
-      padding: 0;
-      input{
-        border-width:0px;
-        border-bottom:0.1px solid black;
-        // outline:none;
+
+  .personal__information {
+    background: white;
+    width: 400px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    .personal__information-header{
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .personal__information-body {
+      border: none;
+
+      td {
+        padding: 0;
+
+        input {
+          border-width: 0px;
+          border-bottom: 0.1px solid black;
+          // outline:none;
+        }
+
+        textarea:focus,
+        input:focus {
+          outline: none;
+        }
+
+        label {
+          margin-right: 10px;
+          margin-bottom: 10px;
+
+        }
       }
-      textarea:focus, input:focus{
-        outline: none;
-    }
-      label {
-        margin-right: 10px;
-        margin-bottom: 10px;
-        
-      }
     }
   }
+
 }
-.cart__item-quantity{
-  .a{
+
+.cart__item-quantity {
+  .a {
     border: 1px solid #E0E0E0E0;
     border-radius: 5px;
     display: flex;
@@ -65,49 +77,59 @@
     width: 5em;
     height: 30px;
   }
-  .btn{
+
+  .btn {
     border: none;
     outline: none;
     box-shadow: none;
     font-weight: 600;
   }
 }
-.cart__item-remove{
-  .deleteBtn{
+
+.cart__item-remove {
+  .deleteBtn {
     border: none;
     background-color: transparent;
   }
-  .deleteBtn:hover{
+
+  .deleteBtn:hover {
     color: #C92127;
   }
 }
-.title{
+
+.title {
   padding-left: 8px;
   font-size: 18px;
   font-weight: 600;
-  .title__num{
+
+  .title__num {
     font-size: 16px;
   }
 }
-.col-main{
+
+.col-main {
   background-color: #f8f6f0;
   height: 100%;
-  padding: 50px;
-  .col-payment{
-    .block-total-cart{
+  padding: 50px 50px 470px 50px;
+
+  .col-payment {
+    .block-total-cart {
       background: white;
       border-radius: 8px;
       width: 400px;
       margin-top: 20px;
-      .totalPrice{
+
+      .totalPrice {
         display: flex;
         padding: 10px 16px;
         font-weight: 650;
         font-size: 1em;
-        .totalPrice__left{
+
+        .totalPrice__left {
           flex-basis: 65%;
         }
-        .totalPrice__right{
+
+        .totalPrice__right {
           flex-basis: 35%;
           display: flex;
           color: #C92127;
@@ -117,13 +139,16 @@
         }
       }
     }
-    hr{
+
+    hr {
       width: 95%;
       margin: auto;
     }
-    .payment{
+
+    .payment {
       padding: 16px 16px;
-      .btn-payment{
+
+      .btn-payment {
         width: 100%;
         margin: 0px 0px 0px 0px;
         font-size: 18px;
@@ -133,20 +158,23 @@
         background: #C92127;
       }
     }
-    
+
   }
 }
-.emptyCart{
-  min-height: calc(100vh - 211px - 58px);
+
+.emptyCart {
+  min-height: calc(75vh - 211px - 58px);
   background-color: #fff;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  .emptyCart__body{
+
+  .emptyCart__body {
     text-align: center;
   }
-  .btn-shopping{
+
+  .btn-shopping {
     cursor: pointer;
     height: 40px;
     width: 220px;
@@ -158,6 +186,27 @@
     font-weight: bold;
     text-transform: uppercase;
   }
-  
->>>>>>> ab77db8 (update)
+}
+
+#modal-checkout{
+  .stickSuccessful{
+    text-align: center;
+  }
+  .checkout-code{
+    font-weight: 600;
+    color: green;
+  }
+  .checkout__information{
+    .checkout__information-main{
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+    .checkout__information-detail{
+      font-weight: 600;
+    }
+    }
+  } 
+  .header-detailCheckoutInformation{
+    font-weight: 550;
+  }
 }

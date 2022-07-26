@@ -32,11 +32,7 @@ function Carousel() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-<<<<<<< HEAD
-            <img src="https://waves-lifestyle.com/wp-content/uploads/2021/04/BBW-Banner.jpg" className="d-block w-100" alt="..." />
-=======
             <img src="https://media.baamboozle.com/uploads/images/14381/1620639865_121714.jpeg" className="d-block w-100" alt="..." />
->>>>>>> ab77db8 (update)
           </div>
           <div className="carousel-item">
             <img src="https://www.ubookstore.com/assets/images/Category/category-books-banner_1920x550_210401.jpg" className="d-block w-100" alt="..." />

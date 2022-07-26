@@ -1,8 +1,6 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Routes from "./Routes";
-import SignUpPage from "./Template/SignUpPage";
-import LoginPage from "./Template/LoginPage";
 import Layout from "./Layout";
 import PageNotFound from "./Components/PageNotFound";
 const renderLayout = (routes) => {
@@ -23,7 +21,7 @@ const renderLayout = (routes) => {
 function App() {
   return (
         <Switch>
-          <Route
+          {/* <Route
             path="/login"
             exact={true}
             render={(routeProps) => <LoginPage {...routeProps} />}
@@ -32,7 +30,7 @@ function App() {
             path="/signup"
             exact={true}
             render={(routeProps) => <SignUpPage {...routeProps} />}
-          />
+          /> */}
           {renderLayout(Routes)}
           <Route
             path="*"

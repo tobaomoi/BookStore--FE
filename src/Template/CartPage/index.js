@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeCart, incrementCart, subtractCart } from "../../redux/cartSlice";
 import Payment from "./payment";
 import EmptyCart from "./emptyCart";
-<<<<<<< HEAD
-=======
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
->>>>>>> ab77db8 (update)
 // import { CartContext } from '../../Context/CartContext'
 
 function CartPage(props) {
@@ -38,11 +35,6 @@ function CartPage(props) {
       return sum;
     }, 0);
   };
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> ab77db8 (update)
   const renderCart = () => {
     if (cart && cart.length > 0) {
       handleTotalPrice();
@@ -56,13 +48,8 @@ function CartPage(props) {
                   <img src={thumbnail[0]} alt={bookName} />
                 </div>
                 <div className="cart__item-name">
-<<<<<<< HEAD
-                  <a href="#">{bookName}</a> <br />
-                  <a href="#">{author}</a>
-=======
                   <a className="cart__item-bookName" href="#">{bookName}</a> <br />
                   <a className="cart__item-authorName" href="#">{author}</a>
->>>>>>> ab77db8 (update)
                 </div>
               </div>
             </td>
@@ -70,21 +57,12 @@ function CartPage(props) {
               {price}
             </td>
             <td className="cart__item-quantity">
-<<<<<<< HEAD
-              <button onClick={(event) => handleDecrement(event, item)}>
-=======
               <div className="a">
               <button className="btn" onClick={(event) => handleDecrement(event, item)}>
->>>>>>> ab77db8 (update)
                 -
               </button>
               {quantity}
 
-<<<<<<< HEAD
-              <button onClick={(event) => handleInscrement(event, item)}>
-                +
-              </button>
-=======
               <button className="btn" onClick={(event) => handleInscrement(event, item)}>
                 +
               </button>
@@ -93,13 +71,8 @@ function CartPage(props) {
             <td className="cart__item-totalPrice">{price * quantity}</td>
             <td className="cart__item-remove">
               <div key={index}>
-<<<<<<< HEAD
-                <button onClick={(event) => handleRemoveCart(event, item)}>
-                  X
-=======
                 <button className="deleteBtn" onClick={(event) => handleRemoveCart(event, item)}>
                   <DeleteForeverIcon></DeleteForeverIcon>
->>>>>>> ab77db8 (update)
                 </button>
               </div>
             </td>
@@ -108,33 +81,6 @@ function CartPage(props) {
       });
     }
   };
-<<<<<<< HEAD
-  if(cart.length === 0){
-    return <EmptyCart />
-  }else return (
-    <div className="container cart">
-      <h1>Giỏ hàng: {cart.length} sản phẩm</h1>
-      <div className="row">
-        <div className="col-9">
-          <table>
-            <thead>
-              <tr>
-                <th className="book-name">Sản phẩm</th>
-                <th className="book-price">Đơn giá</th>
-                <th className="book-quantity">Số lượng</th>
-                <th className="book-totalPrice">Tổng giá</th>
-                <th className="book--remove"></th>
-              </tr>
-            </thead>
-            <tbody>{renderCart()}</tbody>
-          </table>
-        </div>
-        <div className="col-3">
-          <Payment totalPrice={handleTotalPrice()}  />
-        </div>
-      </div>
-    </div>
-=======
   if (cart.length === 0) {
     return <EmptyCart emptyCart={cart} />
   } else return (

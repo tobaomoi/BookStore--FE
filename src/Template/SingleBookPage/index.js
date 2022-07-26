@@ -13,7 +13,7 @@ function SingleBook(props) {
     description: "",
     author: "",
     thumbnail: [],
-    quantity: 1,
+    quantity: 1
   });
 
   const [bookImage, setBookImage] = useState();
@@ -29,16 +29,16 @@ function SingleBook(props) {
 
   const handleIncrement = (e, bookInformation) => {
     e.preventDefault();
-    bookInformation.quantity++;
     setCounter(counter + 1);
+    setBookInformation({ ...bookInformation, quantity: bookInformation.quantity + 1 })
     console.log(bookInformation.quantity);
   }
 
   const handleDecrement = (e, bookInformation) => {
     e.preventDefault();
     if (bookInformation.quantity > 1) {
-      bookInformation.quantity--;
       setCounter(counter - 1);
+      setBookInformation({ ...bookInformation, quantity: bookInformation.quantity - 1 });
       console.log(bookInformation.quantity);
     }
 
@@ -82,13 +82,13 @@ function SingleBook(props) {
       return (
         <div className="book">
           <div className="container">
-            <div className="row">
-              <div className="col-4 book__img">{renderMainImage()}</div>
+            <div className="row book__container">
+              <div className="col-5 book__img">{renderMainImage()}</div>
               <div className="col-1 seperateLine"></div>
-              <div className="col-7 book__information">
+              <div className="col-6 book__information">
                 <h1 className="bookName">{bookInformation.bookName}</h1>
-                <div className="author"><b>Tác giả: </b> {bookInformation.author}</div>
-                <div className="description"><b>Mô tả: </b> {bookInformation.description}</div>
+                <div className="author">Tác giả: <span className="book__author">{bookInformation.author}</span> </div>
+                <div className="description">Mô tả:  <span className="book__description">{bookInformation.description}</span> </div>
                 <div className="price">{bookInformation.price} đ</div>
                 <div className="thumbnail-img">
                   {renderBookImages()}
@@ -131,7 +131,7 @@ function SingleBook(props) {
         thumbnail,
       });
       setBookImage(thumbnail[0]);
-      console.log("data1", result.data);
+      console.log(bookInformation.quantity);
     });
   }, []);
 

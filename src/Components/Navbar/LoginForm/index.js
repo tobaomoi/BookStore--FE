@@ -160,7 +160,7 @@ export default function LoginForm() {
             draggable: true,
             progress: undefined,
           });
-          setTimeout(() => {setOpen(false)}, 2000);
+          setTimeout(() => { setOpen(false) }, 2000);
           setMessage(result.data.message);
           console.log("data", result.data);
         })
@@ -188,21 +188,33 @@ export default function LoginForm() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const [btnLeft, setBtnLeft] = useState("0px");
-  const [register, setRegister] = useState("650px");
-  const [login, setLogin] = useState("150px");
-  const loginBtn = () => {
-    setBtnLeft("0px");
-    setRegister("650px");
-    setLogin("150px");
+  const [btnToRight, setBtnToRight] = useState(true)
+  const [colorBlockBtn, setColorBlockBtn] = useState("0px")
+  const toRight = () => {
+    setBtnToRight(false);
+    setColorBlockBtn("130px")
   }
-
-  const registerBtn = () => {
-    setBtnLeft("130px");
-    setRegister("150px");
-    setLogin("650px");
+  const toLeft = () => {
+    setBtnToRight(true);
+    setColorBlockBtn("0px")
   }
+  // const [btnLeft, setBtnLeft] = useState("0px");
+  // const [register, setRegister] = useState("650px");
+  // const [login, setLogin] = useState("150px");
+  // const [registerNow, setRegisterNow] = useState("155px")
+  // const loginBtn = () => {
+  //   setBtnLeft("0px");
+  //   setRegister("650px");
+  //   setLogin("150px");
+  //   setRegisterNow("155px")
+  // }
+
+  // const registerBtn = () => {
+  //   setBtnLeft("130px");
+  //   setRegister("150px");
+  //   setLogin("650px");
+  //   setRegisterNow("650px")
+  // }
 
   return (
     <div>
@@ -220,122 +232,125 @@ export default function LoginForm() {
           onClose={handleClose}
         >
           <div className="button-box">
-            <div id="btn1" style={{ left: btnLeft }}></div>
-            <button type="button" className="toggle-btn" onClick={loginBtn} >
-              Đăng nhập
-            </button>
-            <button type="button" className="toggle-btn" onClick={registerBtn}>
-              Đăng ký
-            </button>
+            <div className="blockColorBtn" style={{ left: colorBlockBtn }}></div>
+            <label className="toggle-btn" onClick={toLeft}>
+
+              <b>Đăng nhập</b>
+
+            </label>
+            <label className="toggle-btn" onClick={toRight} >
+
+              <b >Đăng ký</b>
+            </label>
           </div>
         </DialogTitle>
         <DialogContent dividers>
           <div className="form-container container">
+
             <form
               id="signIn"
-              style={{ left: login }}
               onSubmit={handleUserSignIn}
-              className="sign_In_Form"
+              className={`${btnToRight ? "sign_In_Form" : "sign_In_Form_Hidden"}`}
               autoComplete="off"
             >
               <div className="input-container ">
-                <label htmlFor="email">
-                  <b>Email</b>
-                </label>
                 <input
                   onChange={handleGetLoginData}
                   id="email"
+                  className="input"
                   name="email"
-                  placeholder="Please enter your email ..."
+                  placeholder="Email"
                   type="text"
                 />
 
-                <label htmlFor="password">
-                  <b> Password</b>
-                </label>
                 <input
                   onChange={handleGetLoginData}
                   id="password"
+                  className="input"
                   name="password"
-                  placeholder="Please enter your password ..."
+                  placeholder="Mật khẩu"
                   type="password"
                 />
               </div>
               <label>
-                <input style={{ marginRight: "2px" }} type="checkbox" name="remember" />
+                <input style={{ marginRight: "10px" }} type="checkbox" name="remember" />
                 Lưu mật khẩu
               </label>
-              <p id="notification">{message}</p>
+              <div className="forget__password">
+                <a className="forget__password-main" href="#">Quên mật khẩu?</a>
+              </div>
               <button
                 className="btn"
                 type="submit"
                 onClick={handleUserSignIn}
               >
-                Đăng nhập
+                <b>Đăng nhập</b>
               </button>
-
             </form>
+            <div className={`${btnToRight ? "registerNow" : "registerNow_Hidden"}`} >
+              Bạn chưa đăng ký? <button className="btn-registerNow" onClick={toRight} >Đăng ký ngay</button>
+            </div>
             <form
               id="signUp"
-              style={{ left: register }}
+
               onSubmit={handleUserSignUp}
-              className="sign_Up_Form"
+              className={`${btnToRight ? "sign_Up_Form_Hidden" : "sign_Up_Form"}`}
               autoComplete="off"
             >
               <div className="input-container">
-                <b>Email</b>
+
                 <input
                   onChange={handleGetSignUpData}
                   id="Email"
+                  className="input"
                   name="Email"
-                  placeholder="Please enter your email ..."
+                  placeholder="Email"
                   type="text"
                 />
               </div>
               <div className="input-container">
-                <b>UserName</b>
+
                 <input
                   onChange={handleGetSignUpData}
                   id="userName"
+                  className="input"
                   name="userName"
-                  placeholder="Please enter your name ..."
+                  placeholder="Tên hiển thị"
                   type="text"
                 />
               </div>
               <div className="input-container">
-                <b>Password</b>
                 <input
                   onChange={handleGetSignUpData}
                   id="passWord"
+                  className="input"
                   name="passWord"
-                  placeholder="Please enter your password ..."
+                  placeholder="Mật khẩu"
                   type="password"
                 />
               </div>
               <div className="input-container">
-                <b>Confirm Password</b>
                 <input
                   onChange={handleGetSignUpData}
                   id="confirmPassWord"
+                  className="input"
                   name="confirmPassWord"
-                  placeholder="Please enter your confirm password ..."
+                  placeholder="Xác nhận mật khẩu"
                   type="password"
                 />
               </div>
               <div className="input-container">
-                <b>Phone Number</b>
                 <input
                   onChange={handleGetSignUpData}
                   id="phoneNumber"
+                  className="input"
                   name="phoneNumber"
-                  placeholder="Please enter your phone number ..."
+                  placeholder="Số điện thoại"
                   type="text"
                 />
               </div>
-              <p id="notification">{message}</p>
-
               <button className="btn" type="submit" onClick={handleUserSignUp}>
-                Sign up
+                <b>Đăng ký</b>
               </button>
             </form>
             <ToastContainer

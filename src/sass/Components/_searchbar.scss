@@ -5,7 +5,7 @@
             height: 300px;
             z-index: 1;
             margin-top: 3px;
-            overflow: hidden ;
+            text-overflow: ellipsis;
             overflow-y: auto;
             background-color:white ;
             box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -31,4 +31,20 @@
     .SearchBar{
         padding: 10px;
     }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1165px) {
+.header__navbar-search{
+    .dataResult{
+       width: 220px;
+       .smallThumbnail{
+        width: 40px;
+        height: auto;
+        object-fit: cover;
+       }
+       .bookName{
+        font-size: small;
+       }
+    }
+}
 }

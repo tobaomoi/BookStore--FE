@@ -10,11 +10,11 @@ const LayoutBase = (props) => {
         </>
     ) 
 }
-export default function Layout({Component, ...props})
+export default function Layout({Component, ...rest})
 {
     return(
         <Route 
-            {...props}
+            {...rest}
             render={(routerProps) => {
                 return (
                     <LayoutBase routerProps={routerProps}>

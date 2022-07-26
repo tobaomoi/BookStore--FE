@@ -1,32 +1,43 @@
 .site-allBook {
+  margin-bottom: 3.5rem;
+  margin-top: 3.5rem;
+  padding-bottom: 390px;
+
   .sidebar {
     padding-left: 15px;
     padding-right: 15px;
-    .MuiPaper-root{
-      .MuiButtonBase-root{
+
+    .MuiPaper-root {
+      .MuiButtonBase-root {
         background: #F7941E;
-        .MuiAccordionSummary-content{
+
+        .MuiAccordionSummary-content {
           justify-content: center;
         }
       }
     }
+
     .MuiAccordion-rounded {
       width: 300px;
-      .MuiCollapse-root{
-        .MuiAccordionDetails-root{
+
+      .MuiCollapse-root {
+        .MuiAccordionDetails-root {
           padding: 0;
-          p{
+
+          p {
             padding: 0;
             width: 100%;
-            
-            .book__categories{
+
+            .book__categories {
               list-style: none;
               padding: 0;
               margin: 0;
-              .book__categories-link{
+
+              .book__categories-link {
                 height: 45px;
                 display: flex;
-                a{
+
+                a {
                   font-family: none;
                   width: 100%;
                   color: #444444;
@@ -34,23 +45,26 @@
                   padding-left: 2em;
                 }
               }
-              .book__categories-link:hover{
+
+              .book__categories-link:hover {
                 background-color: #FCDAB0;
                 cursor: pointer;
               }
             }
           }
         }
-        
       }
     }
   }
+
   .content {
     padding-right: 15px;
     padding-left: 15px;
+    margin-left: 5rem;
   }
+
   .books {
-   
+
     .book__item {
       border-top: 1px solid #eae8e4;
       border-left: 1px solid #eae8e4;
@@ -58,28 +72,58 @@
       border-bottom: 1px solid #eae8e4;
     }
   }
+
   .paginationBtn {
     width: 80%;
     height: 40px;
     list-style: none;
     display: flex;
     justify-content: center;
+
     a {
+      background: #dc3545;
       padding: 10px;
-      margin:8px;
+      margin: 8px;
       border-radius: 5px;
-      border: 1px solid #2b2eff;
-      color: #2b2eff;
+      color: white;
       font-size: 18px;
       cursor: pointer;
     }
+
     a:hover {
       color: white;
-      background-color: #2b2eff;
+      opacity: 0.9;
     }
   }
-  .paginationActive a{
+
+  .paginationActive a {
     color: white;
     background-color: #2b2eff;
+  }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+  .site-allBook {
+    .sidebar{
+      .MuiAccordion-rounded {
+        width: 210px;
+      }
+     
+    }
+  }
+}
+@media only screen and (max-width: 750px) {
+  .site-allBook{
+    .sidebar{
+      width: 100%;
+      text-align: -webkit-center;
+    }
+    .content{
+      margin-left: 0;
+      .content__main{
+        margin-top: 2rem;
+        
+      }
+    }
   }
 }

@@ -3,6 +3,9 @@ import { NavHashLink } from "react-router-hash-link";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { addCart } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
+import 'react-toastify/dist/ReactToastify.css';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
 function BookItem(props) {
   const { book } = props;
   const dispatch = useDispatch();
@@ -16,11 +19,12 @@ function BookItem(props) {
     thumbnail: book.thumbnail,
     quantity: 1,
   });
+ 
   const addToCart = (e) => {
     e.preventDefault();
     const action = addCart(bookInformation);
-    console.log({ action });
     dispatch(action);
+    console.log('hi');
   };
   return (
     // eslint-disable-next-line no-template-curly-in-string
@@ -32,18 +36,19 @@ function BookItem(props) {
           </div>
         </NavHashLink>
         <div className="short__information">
-          <a href={`/book/${book.id}/#`}>{book.category}</a>
+          <a className="book__category" href={`/book/${book.id}/#`}>{book.category}</a>
           <div className="book__name">  {book.bookName}</div>
           <div className="book__author"> {book.author}</div>
           <div className="book__price">{book.price} đ</div>
         </div>
-        <div className="item__hover d-flex justify-content-between">
-          <form action="" onSubmit={(event) => addToCart(event)}>
-            <button type="submit">Thêm vào giỏ</button>
+      </div>
+      <div className="item__hover d-flex ">
+          <form onSubmit={(event) => addToCart(event)}>
+            <button type="submit" className="addShoppingCartText">Thêm vào giỏ</button>
+            <button type="submit" className="addShoppingCartIcon"><AddShoppingCartIcon/></button>
           </form>
           <FavoriteBorderIcon className="icon-heart" />
         </div>
-      </div>
     </li>
   );
 }

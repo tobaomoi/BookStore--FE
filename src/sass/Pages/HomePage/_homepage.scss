@@ -1,4 +1,6 @@
 .HomePage {
+  position: relative;
+  padding-bottom: 300px;
   section {
     padding-bottom: 6rem;
   }
@@ -21,11 +23,7 @@
       margin: 0 auto;
       position: relative;
       min-width: 100%;
-<<<<<<< HEAD
-      height: 75vh;
-=======
       height: 80vh;
->>>>>>> ab77db8 (update)
     }
   }
 
@@ -49,7 +47,9 @@
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
-
+    .book-category__inner{
+      text-align: center;
+    }
     .education {
       background-color: #FAF1FF;
     }
@@ -82,5 +82,21 @@
       font-weight: bold;
     }
   
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1025px){
+  .HomePage{
+    .carousel{
+      img{
+        height: 30vh;
+      }
+    }
+    .book-list__category{
+     .book-catergory{
+      text-align: center;
+     }
+
+    }
   }
 }
