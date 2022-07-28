@@ -123,7 +123,7 @@ function Navbar() {
       <nav className="header__navbar container-fluid  px-3 px-md-5 ">
        
         <div className="header__navbar-logo">
-          <NavHashLink smooth to="/homepage">
+          <NavHashLink smooth to="/">
             <img
               className="logo"
               src="https://i.pinimg.com/originals/70/bd/63/70bd630505578fffc4c873001f89a9e1.jpg"
@@ -140,7 +140,7 @@ function Navbar() {
          <label htmlFor="check" className="header__navbar-close"><CloseIcon /></label> 
           <ul>
             <li className="header__navbar-item">
-              <NavHashLink className={`header__navbar-hashLink ${active === 'homepage'? 'active' : ''}`} smooth to="/homepage" id="homepage" onClick={(e) => addActiveClass(e)} >
+              <NavHashLink className={`header__navbar-hashLink ${active === 'homepage'? 'active' : ''}`} smooth to="/" id="homepage" onClick={(e) => addActiveClass(e)} >
                 Trang chủ
               </NavHashLink>
             </li>

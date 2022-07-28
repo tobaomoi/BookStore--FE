@@ -4,7 +4,7 @@ import AllBookPage from "../Template/AllBookPage"
 import SingleBook from "../Template/SingleBookPage"
 const Routes = [
     {
-        path:"/homepage",
+        path:"/",
         exact: true,
         component: HomePage,
     },
