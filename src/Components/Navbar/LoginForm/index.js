@@ -53,7 +53,7 @@ const DialogContent = withStyles((theme) => ({
 }))(MuiDialogContent);
 
 export default function LoginForm() {
-  const [message, setMessage] = useState("");
+
   const [signInData, setSignInData] = useState({
     email: "",
     password: "",
@@ -69,7 +69,7 @@ export default function LoginForm() {
 
 
   const handleGetLoginData = (event) => {
-    setMessage("");
+  
     const { name, value } = event.target;
     setSignInData({ ...signInData, [name]: value });
   };
@@ -93,7 +93,7 @@ export default function LoginForm() {
         .post("/users/login", signInData)
         .then((result) => {
           console.log(result);
-          setMessage(result.data.message);
+          
           window.localStorage.setItem(
             "accessToken",
             JSON.stringify(result.data.user.value.token)
@@ -128,7 +128,7 @@ export default function LoginForm() {
   };
 
   const handleGetSignUpData = (event) => {
-    setMessage("");
+   
     const { name, value } = event.target;
     setSignUpData({ ...signUpData, [name]: value });
   };
@@ -161,11 +161,11 @@ export default function LoginForm() {
             progress: undefined,
           });
           setTimeout(() => { setOpen(false) }, 2000);
-          setMessage(result.data.message);
+         
           console.log("data", result.data);
         })
         .catch((err) => {
-          setMessage(err.response.data.error);
+          
           toast.error('Đăng ký thất bại', {
             position: "top-right",
             autoClose: 5000,
@@ -198,23 +198,6 @@ export default function LoginForm() {
     setBtnToRight(true);
     setColorBlockBtn("0px")
   }
-  // const [btnLeft, setBtnLeft] = useState("0px");
-  // const [register, setRegister] = useState("650px");
-  // const [login, setLogin] = useState("150px");
-  // const [registerNow, setRegisterNow] = useState("155px")
-  // const loginBtn = () => {
-  //   setBtnLeft("0px");
-  //   setRegister("650px");
-  //   setLogin("150px");
-  //   setRegisterNow("155px")
-  // }
-
-  // const registerBtn = () => {
-  //   setBtnLeft("130px");
-  //   setRegister("150px");
-  //   setLogin("650px");
-  //   setRegisterNow("650px")
-  // }
 
   return (
     <div>
