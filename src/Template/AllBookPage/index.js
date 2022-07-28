@@ -86,7 +86,7 @@ function AllBookPage() {
                   <Typography>
                     <ul className="book__categories">
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=`}>Tất cả</NavHashLink>
+                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=all`}>Tất cả</NavHashLink>
                       </li>
                       <li className="book__categories-link">
                         <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=giao duc`}>Giáo dục</NavHashLink>

@@ -45,7 +45,7 @@ function BooksHomePage() {
         <div className="container">
           <header className="d-flex justify-content-between align-items-center">
             <h2>Chủ đề nổi bật</h2>
-            <a className="see-all" href="http://localhost:3000/allBook?category=">Tất cả <FiChevronsRight/></a>
+            <a className="see-all" href="http://localhost:3000/allBook?category=all">Tất cả <FiChevronsRight/></a>
           </header>
           <ul className="book-list__category  list-unstyled my-0 row">
             <li className="book-category col">
