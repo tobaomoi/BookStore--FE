@@ -25,10 +25,10 @@ function Footer(props) {
           <div className="col-md-2">
               <h6>Trang</h6>
               <ul className="footer-link">
-                  <li><a href="http://localhost:3000/">Trang chủ</a> </li>
+                  <li><a href="https://hieusachcuanhat.vercel.app">Trang chủ</a> </li>
                   <li>Giới thiệu</li>
-                  <li><a href={`http://localhost:3000/allBook?page=1&category=`}>Sản phẩm</a> </li>
-                  <li><a href="http://localhost:3000/cart">Giỏ hàng</a></li>
+                  <li><a href={`https://hieusachcuanhat.vercel.app/allBook?page=1&category=all`}>Sản phẩm</a> </li>
+                  <li><a href="https://hieusachcuanhat.vercel.app/cart">Giỏ hàng</a></li>
               </ul>
           </div>
         </div>

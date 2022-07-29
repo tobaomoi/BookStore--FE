@@ -145,7 +145,7 @@ function Navbar() {
               </NavHashLink>
             </li>
             <li className="header__navbar-item">
-              <NavHashLink className={`header__navbar-hashLink ${active === "intro" ? 'active' : ''}`}  smooth to="/abc" id="intro" onClick={(e) => addActiveClass(e)}>
+              <NavHashLink className={`header__navbar-hashLink ${active === "intro" ? 'active' : ''}`}  smooth to="/" id="intro" onClick={(e) => addActiveClass(e)}>
                 Giới thiệu
               </NavHashLink>
             </li>
@@ -153,7 +153,7 @@ function Navbar() {
               <NavHashLink
                 className={`header__navbar-hashLink ${active === "allBook" ? 'active' : ''}`} 
                 smooth
-                to="/allBook?page=1&category="
+                to="/allBook?page=1&category=all"
                 id="allBook"
                 onClick={(e) => addActiveClass(e)}
               >
@@ -168,7 +168,7 @@ function Navbar() {
             <div className="header__topbar-rightMobile">
             <ul>
               <li className="header__topbar-item">
-                <a href="http://localhost:3000/cart">
+                <a href="https://hieusachcuanhat.vercel.app/cart">
                   GIỎ HÀNG
                   <ShoppingCartRoundedIcon
                     className="cart"
