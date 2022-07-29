@@ -76,7 +76,7 @@ function Navbar() {
           <div className="header__topbar-right">
             <ul>
               <li className="header__topbar-item">
-                <a href="http://localhost:3000/cart">
+                <a href="https://hieusachcuanhat.vercel.app/cart">
                   <ShoppingCartRoundedIcon
                     className="cart"
                     fontSize="inherit"
