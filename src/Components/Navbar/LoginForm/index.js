@@ -109,7 +109,7 @@ export default function LoginForm() {
           });
           setTimeout(() => {
             setOpen(false);
-            window.location.href = "http://localhost:3000/";
+            window.location.href = "https://hieusachcuanhat.vercel.app";
           }, 1000);
         })
         .catch((err) => {
