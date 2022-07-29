@@ -45,7 +45,7 @@ function SearchBar({ placeholder, data }) {
               <a
                 key={key}
                 className="dataItem"
-                href={`http://localhost:3000/book/${book.id}`}
+                href={`https://hieusachcuanhat.vercel.app/book/${book.id}`}
               >
                 <p className="bookName">
                   <span>

@@ -31,7 +31,7 @@ function Navbar() {
   }
   const handleUserLogOut = () => {
     window.localStorage.clear();
-    window.location.href = "http://localhost:3000/homepage";
+    window.location.href = "https://hieusachcuanhat.vercel.app";
     deleteCart();
   };
 
@@ -50,7 +50,7 @@ function Navbar() {
           <div className="header__topbar-right">
             <ul>
               <li className="header__topbar-item">
-                <a href="http://localhost:3000/cart">
+                <a href="https://hieusachcuanhat.vercel.app/cart">
                   <ShoppingCartRoundedIcon
                     className="cart"
                     fontSize="inherit"
@@ -145,7 +145,7 @@ function Navbar() {
               </NavHashLink>
             </li>
             <li className="header__navbar-item">
-              <NavHashLink className={`header__navbar-hashLink ${active === "intro" ? 'active' : ''}`}  smooth to="/" id="intro" onClick={(e) => addActiveClass(e)}>
+              <NavHashLink className={`header__navbar-hashLink ${active === "intro" ? 'active' : ''}`}  smooth to="/#" id="intro" onClick={(e) => addActiveClass(e)}>
                 Giới thiệu
               </NavHashLink>
             </li>
