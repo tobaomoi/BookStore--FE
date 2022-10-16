@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 
 function SearchBar({ placeholder, data }) {
-  console.log("data", data);
   const [filterData, setFilterData] = useState([]);
   const handleFilter = (e) => {
     const searchWord = e.target.value;

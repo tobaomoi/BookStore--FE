@@ -26,8 +26,6 @@ function Navbar() {
     } else {
       setActive(clicked)
     }
-    // setActive(true);
-    console.log('alo',active);
   }
   const handleUserLogOut = () => {
     window.localStorage.clear();
@@ -108,14 +106,11 @@ function Navbar() {
       "MY_BIG_SECRET_KEY",
       (err, decodedToken) => {
         if (!err) {
-          console.log(decodedToken);
           setUserInformation(decodedToken);
-          console.log("user", userInformation);
         }
       }
     );
     getAllBooks();
-    console.log(allBooks);
   }, []);
   return (
     <div className="header ">
@@ -153,7 +148,7 @@ function Navbar() {
               <NavHashLink
                 className={`header__navbar-hashLink ${active === "allBook" ? 'active' : ''}`} 
                 smooth
-                to="/allBook?page=1&category=all"
+                to="/allBook?page=0&category=all"
                 id="allBook"
                 onClick={(e) => addActiveClass(e)}
               >

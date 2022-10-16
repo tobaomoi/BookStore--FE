@@ -1,31 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCart, incrementCart, subtractCart } from "../../redux/cartSlice";
+import { removeCart, incrementCart, subtractCart, deleteCart } from "../../redux/cartSlice";
 import Payment from "./payment";
 import EmptyCart from "./emptyCart";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-// import { CartContext } from '../../Context/CartContext'
+import { useEffect } from "react";
 
 function CartPage(props) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  // const [totalPrice, setTotalPrice] = useState();
-  console.log("List of Cart:", cart);
   const handleRemoveCart = (e, book) => {
     e.preventDefault();
-    const removeCartId = book.bookId;
+    const removeCartId = book.id;
     const action = removeCart(removeCartId);
     dispatch(action);
   };
   const handleInscrement = (e, book) => {
     e.preventDefault();
-    const bookId = book.bookId;
+    const bookId = book.id;
     const action = incrementCart(bookId);
     dispatch(action);
   };
   const handleDecrement = (e, book) => {
     e.preventDefault();
-    const bookId = book.bookId;
+    const bookId = book.id;
     const action = subtractCart(bookId);
     dispatch(action);
   };
@@ -35,11 +33,19 @@ function CartPage(props) {
       return sum;
     }, 0);
   };
+  const removeAllCart = (e) => {
+    e.preventDefault();
+    dispatch(deleteCart());
+  }
+  useEffect(() => {
+    // window.location.reload();
+  },[cart.length])
+  
   const renderCart = () => {
     if (cart && cart.length > 0) {
       handleTotalPrice();
       return cart.map((item, index) => {
-        const { bookName, price, thumbnail, author, quantity } = item;
+        const { bookName, price, thumbnail, author, quantity, id } = item;
         return (
           <tr className="cart__item" key={index}>
             <td className="cart__item-name" title="Sản phẩm">
@@ -48,8 +54,8 @@ function CartPage(props) {
                   <img src={thumbnail[0]} alt={bookName} />
                 </div>
                 <div className="cart__item-name">
-                  <a className="cart__item-bookName" href="#">{bookName}</a> <br />
-                  <a className="cart__item-authorName" href="#">{author}</a>
+                  <a className="cart__item-bookName" href={`/book/${id}`}>{bookName}</a> <br />
+                  <a className="cart__item-authorName" href={`/book/${id}`}>{author}</a>
                 </div>
               </div>
             </td>
@@ -58,14 +64,14 @@ function CartPage(props) {
             </td>
             <td className="cart__item-quantity">
               <div className="a">
-              <button className="btn" onClick={(event) => handleDecrement(event, item)}>
-                -
-              </button>
-              {quantity}
+                <button className="btn" onClick={(event) => handleDecrement(event, item)}>
+                  -
+                </button>
+                {quantity}
 
-              <button className="btn" onClick={(event) => handleInscrement(event, item)}>
-                +
-              </button>
+                <button className="btn" onClick={(event) => handleInscrement(event, item)}>
+                  +
+                </button>
               </div>
             </td>
             <td className="cart__item-totalPrice">{price * quantity}</td>
@@ -96,7 +102,8 @@ function CartPage(props) {
                   <th className="book-price"> Đơn giá </th>
                   <th className="book-quantity">Số lượng</th>
                   <th className="book-totalPrice">Tổng giá</th>
-                  <th className="book--remove"></th>
+                  <th className="book--remove" >
+                    <a className="removeAll" href="#" title="Xóa tất cả" onClick={(event)=>removeAllCart(event)}>Xóa</a> </th>
                 </tr>
               </thead>
               <tbody>{renderCart()}</tbody>
@@ -110,6 +117,7 @@ function CartPage(props) {
     </div>
 
   );
+ 
 }
 
 export default CartPage;

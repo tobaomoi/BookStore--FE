@@ -6,7 +6,7 @@ import { addCart } from "../../redux/cartSlice";
 function SingleBook(props) {
   const dispatch = useDispatch();
   const [bookInformation, setBookInformation] = useState({
-    bookId: "",
+    id: "",
     bookName: "",
     category: "",
     price: "",
@@ -23,8 +23,9 @@ function SingleBook(props) {
   const addToCart = (e) => {
     e.preventDefault();
     const action = addCart(bookInformation);
-    console.log({ action });
+    console.log(bookInformation);
     dispatch(action);
+    
   }
 
   const handleIncrement = (e, bookInformation) => {
@@ -51,7 +52,6 @@ function SingleBook(props) {
     event.preventDefault();
 
     const bookList = document.getElementsByClassName("box");
-    console.log(bookList);
     for (let item of bookList) {
       item.classList.remove("selected");
     }
@@ -116,13 +116,13 @@ function SingleBook(props) {
   }
 
   useEffect(() => {
-    const bookId = props.match.params.bookId;
-    callApi.get(`books/getBook/${bookId}`).then((result) => {
+    const id = props.match.params.bookId;
+    callApi.get(`books/getBook/${id}`).then((result) => {
       const { bookName, category, price, description, author, thumbnail } =
         result.data;
       setBookInformation({
         ...bookInformation,
-        bookId,
+        id,
         bookName,
         category,
         price,
@@ -131,7 +131,6 @@ function SingleBook(props) {
         thumbnail,
       });
       setBookImage(thumbnail[0]);
-      console.log(bookInformation.quantity);
     });
   }, []);
 

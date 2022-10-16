@@ -6,6 +6,8 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { useDispatch } from "react-redux";
+import { deleteCart } from "../../redux/cartSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +45,8 @@ function Payment(props) {
     city: "",
     orderCode: oderCode
   });
-  totalPrice = totalPrice.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});
+  const dispatch = useDispatch();
+  totalPrice = totalPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
   const handleClose = () => {
     setOpen(false);
   };
@@ -102,16 +105,30 @@ function Payment(props) {
         </Modal>
       )
     }
+    const deleteListOfCart = (e) => {
+      e.preventDefault();
+      toast.success('Xác nhận thành công!',{
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        dispatch(deleteCart());
+      }, 2000);
+      
+    }
     if (isLogin === true) {
-      if (document.getElementById('name').value !== "" && document.getElementById('phoneNumber').value !== "" && document.getElementById('address').value !== "" && document.getElementById('city').value !== "")
+      if (document.getElementById('name').value !== "" && document.getElementById('phoneNumber').value !== "" && document.getElementById('address').value !== "" && document.getElementById('city').value !== "") {
         return (
           <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
-
             className={classes.modal}
             open={open}
-            onClose={handleClose}
             closeAfterTransition
             BackdropComponent={Backdrop}
             BackdropProps={{
@@ -132,12 +149,16 @@ function Payment(props) {
                     <p className="checkout__information-main">SĐT: <span className="checkout__information-detail">{userInformation.phoneNumber}</span> </p>
                     <p className="checkout__information-main">Địa chỉ: <span className="checkout__information-detail">{userInformation.address}</span></p>
                     <p className="checkout__information-main">Tổng giá: <span className="checkout__information-detail">{totalPrice}</span></p>
+                    <div className="cnfm">
+                    <button className="cnfm-button" onClick={(e)=> deleteListOfCart(e)}>XÁC NHẬN</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </Fade>
           </Modal>
         )
+      }
     }
 
   }

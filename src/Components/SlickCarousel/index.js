@@ -17,8 +17,11 @@ function SlickCarousel(props) {
 
   const renderAllCarouselBooks = () => {
     const { allSlickCarouselBooks } = props;
-    return allSlickCarouselBooks.map((book, index) => {
-      return <BookItem key={index} book={book} />;
+    const responseData = allSlickCarouselBooks.map((book) => ({
+      ...book, quantity: 1
+    }));
+    return responseData.map((book,i) => {
+      return <BookItem key={i} book={book} />;
     });
   };
   return (
@@ -34,10 +37,11 @@ function SlickCarousel(props) {
         </h2>
       </header>
       <ul className="list-unstyled">
-      <Slider {...slickCarouselOptions}>{renderAllCarouselBooks()}</Slider>
+        <Slider {...slickCarouselOptions}>{renderAllCarouselBooks()}</Slider>
       </ul>
     </div>
   );
+
 }
 
 export default SlickCarousel;

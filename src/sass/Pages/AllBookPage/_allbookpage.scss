@@ -61,6 +61,29 @@
     padding-right: 15px;
     padding-left: 15px;
     margin-left: 5rem;
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      height: 40px;
+      list-style: none;
+
+      li {
+        margin: 0 5px;
+      }
+
+      a {
+        align-items: center;
+        margin: 8px;
+        color: black;
+        cursor: pointer;
+      }
+    }
+    .pagination button.active{
+      background-color: #4CAF50;
+      color: white;
+    }
   }
 
   .books {
@@ -104,25 +127,34 @@
 
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
   .site-allBook {
-    .sidebar{
+    .sidebar {
       .MuiAccordion-rounded {
         width: 210px;
       }
-     
+
     }
   }
 }
+
 @media only screen and (max-width: 750px) {
-  .site-allBook{
-    .sidebar{
+  .site-allBook {
+    .sidebar {
       width: 100%;
       text-align: -webkit-center;
+
+      .book__categories-link {
+        a {
+          padding-right: 4rem;
+        }
+      }
     }
-    .content{
+
+    .content {
       margin-left: 0;
-      .content__main{
+
+      .content__main {
         margin-top: 2rem;
-        
+
       }
     }
   }

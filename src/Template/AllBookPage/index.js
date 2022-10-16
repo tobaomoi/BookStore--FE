@@ -8,9 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import callApi from "../../api";
 import BookItem from "../../Components/BookItem";
-import ReactPaginate from "react-paginate";
-import { useHistory, useLocation } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+import { useHistory } from "react-router-dom";
+import Pagination from "../../Components/Pagination";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -22,20 +22,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AllBookPage() {
-
   const classes = useStyles();
   const [bookData, setBookData] = useState({});
-  const [pageNumber, setPageNumber] = useState(0);
+  const getPageNumber = () => {
+    return new URLSearchParams(window.location.search).get("page");
+  }
+  const [pageNumber, setPageNumber] = useState(getPageNumber());
   const history = useHistory();
-  const location = useLocation();
   const path = window.location.pathname;
 
-  const getBooksCateogry = () => {
+  const getBooksCategory = () => {
     return new URLSearchParams(window.location.search).get("category");
   }
-
   const getAllBooks = () => {
-    const category = getBooksCateogry();
+    const category = getBooksCategory();
     callApi
       .get("/books/getBookByPage", {
         params: {
@@ -44,26 +44,23 @@ function AllBookPage() {
         },
       })
       .then((result) => {
-        console.log(location.search.substring());
         setBookData(result.data);
       });
+
   };
   const listBook = () => {
     if (bookData.data && bookData.data.length > 0) {
-      return bookData.data.map((book, index) => {
+      const responseData = bookData.data.map((book) => ({ ...book, quantity: 1 }));
+      return responseData.map((book, index) => {
         return <BookItem key={index} book={book} />;
       });
     }
   };
 
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
-
   useEffect(() => {
-    const category = getBooksCateogry();
+    const category = getBooksCategory();
+    history.push(`${path}?page=${pageNumber}&category=${category}`)
     getAllBooks();
-    history.push(`${path}?page=${pageNumber + 1}&category=${category}`)
   }, [pageNumber, new URLSearchParams(window.location.search).get("category")]);
 
   return (
@@ -86,22 +83,22 @@ function AllBookPage() {
                   <Typography>
                     <ul className="book__categories">
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=all`}>Tất cả</NavHashLink>
+                        <a href={`/allBook?page=0&category=all`}>Tất cả</a>
                       </li>
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=giao duc`}>Giáo dục</NavHashLink>
+                        <a href={`/allBook?page=0&category=giao duc`}>Giáo dục</a>
                       </li>
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=the thao`}>Thể thao</NavHashLink>
+                        <a href={`/allBook?page=0&category=tham hiem`}>Thám hiểm</a>
                       </li>
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=kinh doanh`}>Kinh doanh</NavHashLink>
+                        <a href={`/allBook?page=0&category=kinh te`}>Kinh tế</a>
                       </li>
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=tinh cam`}>Tình cảm</NavHashLink>
+                        <a href={`/allBook?page=0&category=tam ly`}>Tâm lý</a>
                       </li>
                       <li className="book__categories-link">
-                        <NavHashLink smooth to={`/allBook?page=${pageNumber}&category=phieu luu`}>Phiêu lưu</NavHashLink>
+                        <a href={`/allBook?page=0&category=phieu luu`}>Phiêu lưu</a>
                       </li>
                     </ul>
                   </Typography>
@@ -117,18 +114,7 @@ function AllBookPage() {
                 </ul>
               </div>
               <div className="content__pagination">
-                <ReactPaginate
-                  previousLabel={"‹"}
-                  nextLabel={"›"}
-                  pageCount={bookData.last_page}
-                  onPageChange={changePage}
-                  containerClassName={"paginationBtn"}
-                  previousLinkClassName={"previousBtn"}
-                  nextLinkClassName={"nextBtn"}
-                  disabledClassName={"paginationDisabled"}
-                  activeClassName={"paginationActive"}
-                  breakLabel={"..."}
-                />
+                <Pagination lastPage={bookData.last_page} setNumberPage={setPageNumber} currentPage={pageNumber} />
               </div>
             </div>
           </div>

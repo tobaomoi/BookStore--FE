@@ -1,23 +1,34 @@
 .HomePage {
   position: relative;
-  padding-bottom: 300px;
+
   section {
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
   }
-  button{
+
+  button {
     z-index: 0;
   }
+
   header {
     padding-bottom: 2rem !important;
-    .see-all{
-      color: #161619;
-      font-size: 1.125rem;
-      font-weight: bold;
-    }
-    .see-all:hover{
-      color: red;
+
+    .message {
+      text-align: center;
+      font-size: 14px;
+
     }
   }
+
+  .saleBanner {
+    text-align: center;
+    margin-bottom: 6rem;
+
+    .saleBanner-img {
+      width: 90%;
+      height: 400px;
+    }
+  }
+
   .carousel {
     img {
       margin: 0 auto;
@@ -27,10 +38,11 @@
     }
   }
 
-  .slick-list{
+  .slick-list {
     border-right: thin solid #d0d0d0;
     border-left: thin solid #d0d0d0;
   }
+
   .slick-slide {
     border: thin solid #d0d0d0;
     width: 280px;
@@ -38,6 +50,7 @@
     overflow: hidden !important;
     transition: all .2s ease-in-out;
   }
+
   .slick-slide:hover {
     border: thin solid rgb(20, 20, 20);
   }
@@ -47,55 +60,201 @@
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
-    .book-category__inner{
-      text-align: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #a1a2a1;
+    border-top: 1px solid #a1a2a1;
+
+    .book-category {
+      text-decoration: none;
+
+      .book-category__inner {
+        text-align: center;
+      }
     }
+
+    .book-category:hover {
+      .see-more {
+        text-decoration: underline;
+      }
+    }
+
     .education {
       background-color: #FAF1FF;
     }
-    .sport{
+
+    .sport {
       background-color: #FAF4EB;
     }
-    .business{
+
+    .business {
       background-color: #F4E6E5;
     }
-    .romance{
+
+    .romance {
       background-color: #E6F2F4;
     }
-    .crypto{
+
+    .crypto {
       background-color: #FFF6F6;
     }
 
     .book-category__icon {
       font-size: 3.125rem;
     }
+
     .text-category {
-      font-size: 1.125rem;
-      font-weight: 450;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      font-size: 1.120rem;
+      color: #161619;
+      font-weight: 600;
     }
-    .see-more{
-      color: #161619!important;
-      font-size: 14px;
-      font-weight: bold;
+
+    .see-more {
+      color: #161619 !important;
+      font-size: 13px;
     }
-  
+
   }
+
+  .horrorBooksBox {
+    .imgContainer-left:hover,.imgContainer-right:hover{
+      .quick-add{
+        opacity: 1;
+        transform: translate(0, -100%);
+        button:hover{
+          background-color: #1B1B1B;
+          color: white;
+          border: none;
+        }
+      }
+    }
+
+    .horrorBooks {
+      margin-top: 2.2rem;
+
+      .quick-add {
+        position: absolute;
+        color: white;
+        background-color: #fff;
+        top: 100%;
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+        opacity: 0;
+        button{
+          width: 100%;
+          height: 2rem;
+          padding: 5px 10px;
+          color: #1B1B1B;
+          text-align: center;
+          font-weight: 600;
+          background-color: white;
+          border: 2px solid #1B1B1B;
+          box-shadow: rgba(0, 0, 0, 0.25) 8px 8px 15px;
+        }
+      }
+      
+      .bookName{
+        width: 100%;
+        margin-top: 1.2rem;
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: .57px;
+        cursor: pointer;
+      }
+      .author{
+        text-decoration: underline;
+        cursor: pointer;
+        letter-spacing: .54px;
+        margin-top: 0.3rem;
+      }
+      .horrorBooks__left-content {
+        float: left;
+        max-width: 15rem;
+        text-align: center;
+
+        .imgContainer-left {
+          img {
+            max-width: 300px;
+            max-height: 457px;
+            object-fit: contain;
+          }
+        }
+
+        .description {
+          font-size: 13px;
+          line-height: 1.847;
+          color: #21282d;
+          padding: 5px 5px 25px;
+          margin-top: 1rem;
+        }
+      }
+
+      .horrorBooks__right-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .contentBook {
+          margin: 0 0 4.155rem 2.6931rem;
+          max-width: 205px;
+          text-align: center;
+          .imgContainer-right {
+            img {
+              max-width: 220px;
+            }
+            .quick-add{
+              left: 5%;
+              button{
+                font-size: 13px;
+                width: 50%;
+              }
+              
+            }
+          }
+        }
+      }
+    }
+
+  }
+  
+  .libraryBox{
+    background-color: #1e272e;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    #libraryTitle{
+      color: #d6bda6;
+      padding-bottom: 1.5rem;
+    }
+    .image-box{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .image{
+        width: 530px;
+        padding: 0 20px 20px;
+        opacity: .5;
+      }
+      .image:hover{
+        opacity: 1;
+        transition: .9s;
+      }
+    }
+  }
+
 }
 
-@media only screen and (min-width: 375px) and (max-width: 1025px){
-  .HomePage{
-    .carousel{
-      img{
+@media only screen and (min-width: 375px) and (max-width: 1025px) {
+  .HomePage {
+    .carousel {
+      img {
         height: 30vh;
       }
     }
-    .book-list__category{
-     .book-catergory{
-      text-align: center;
-     }
+
+    .book-list__category {
+      .book-catergory {
+        text-align: center;
+      }
 
     }
   }
