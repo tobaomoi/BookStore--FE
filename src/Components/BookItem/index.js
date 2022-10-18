@@ -28,7 +28,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
           <a className="book__category" href={`/book/${book.id}/#`}>{book.category.replace("All-", " ")}</a>
           <div className="book__name">  {book.bookName}</div>
           <div className="book__author"> {book.author}</div>
-          <div className="book__price">{book.price} đ</div>
+          <div className="book__price"> {book.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} đ</div>
         </div>       
       </div>
       <div className="item__hover d-flex ">

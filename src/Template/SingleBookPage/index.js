@@ -89,7 +89,7 @@ function SingleBook(props) {
                 <h1 className="bookName">{bookInformation.bookName}</h1>
                 <div className="author">Tác giả: <span className="book__author">{bookInformation.author}</span> </div>
                 <div className="description">Mô tả:  <span className="book__description">{bookInformation.description}</span> </div>
-                <div className="price">{bookInformation.price} đ</div>
+                <div className="price">{bookInformation.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} đ</div>
                 <div className="thumbnail-img">
                   {renderBookImages()}
                 </div>
