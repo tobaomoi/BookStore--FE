@@ -69,7 +69,6 @@ export default function LoginForm() {
 
 
   const handleGetLoginData = (event) => {
-  
     const { name, value } = event.target;
     setSignInData({ ...signInData, [name]: value });
   };
@@ -91,9 +90,7 @@ export default function LoginForm() {
     else {
       callApi
         .post("/users/login", signInData)
-        .then((result) => {
-          console.log(result);
-          
+        .then((result) => { 
           window.localStorage.setItem(
             "accessToken",
             JSON.stringify(result.data.user.value.token)
@@ -122,7 +119,6 @@ export default function LoginForm() {
             draggable: true,
             progress: undefined,
           });
-          console.log(err);
         });
     }
   };
@@ -139,13 +135,12 @@ export default function LoginForm() {
       toast.warn('Nhập đầy đủ dữ liệu!', {
         position: "top-right",
         autoClose: 5000,
-        hideProgressBar: false,
+        hideProgressBar: false, 
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
       });
-      console.log("hello");
       return false;
     } else {
       callApi
@@ -162,7 +157,6 @@ export default function LoginForm() {
           });
           setTimeout(() => { setOpen(false) }, 2000);
          
-          console.log("data", result.data);
         })
         .catch((err) => {
           
@@ -260,7 +254,7 @@ export default function LoginForm() {
                 Lưu mật khẩu
               </label>
               <div className="forget__password">
-                <a className="forget__password-main" href="#">Quên mật khẩu?</a>
+                <a className="forget__password-main" href="/">Quên mật khẩu?</a>
               </div>
               <button
                 className="btn"
@@ -275,7 +269,6 @@ export default function LoginForm() {
             </div>
             <form
               id="signUp"
-
               onSubmit={handleUserSignUp}
               className={`${btnToRight ? "sign_Up_Form_Hidden" : "sign_Up_Form"}`}
               autoComplete="off"
